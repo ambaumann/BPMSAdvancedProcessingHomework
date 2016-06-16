@@ -13,6 +13,12 @@
       <artifactId>process-event-listener</artifactId>
       <version>1.0</version>
     </dependency>
+    <dependency>
+      <groupId>com.solarvillage.permit</groupId>
+      <artifactId>Domain</artifactId>
+      <version>1.0</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>
