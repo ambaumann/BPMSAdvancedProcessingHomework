@@ -1,30 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:drools="http://www.jboss.org/drools" id="_yp4X8TJbEeaAA63x51bIkg" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" exporter="jBPM Designer" exporterVersion="6.2.0" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.omg.org/bpmn20" typeLanguage="http://www.java.com/javaTypes">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_G5nlkDP6EeaND7FLRow6lQ" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" exporter="jBPM Designer" exporterVersion="6.2.0" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.omg.org/bpmn20" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="_inputHOAMemberItem" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="_newPermitOrderItem" structureRef="com.solarvillage.permit.domain.NewOrder"/>
   <bpmn2:process id="PermitPOC.NewOrderPermittingProcess" drools:packageName="com.solarvillage.permit" drools:version="1.0" name="NewOrderPermittingProcess" isExecutable="true">
     <bpmn2:extensionElements>
       <drools:import name="com.solarvillage.permit.domain.NewOrder"/>
     </bpmn2:extensionElements>
+    <bpmn2:property id="inputHOAMember" itemSubjectRef="_inputHOAMemberItem"/>
+    <bpmn2:property id="newPermitOrder" itemSubjectRef="_newPermitOrderItem"/>
     <bpmn2:startEvent id="processStartEvent" drools:selectable="true" color:background-color="#9acd32" color:border-color="#000000" color:color="#000000" name="">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
+      <bpmn2:outgoing>_A2F36762-3A11-4126-9C18-792D398EB7DC</bpmn2:outgoing>
     </bpmn2:startEvent>
+    <bpmn2:scriptTask id="_ED17FE41-058F-4728-BEFA-71F23DE5C8E0" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Create New Order" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Create New Order]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_A2F36762-3A11-4126-9C18-792D398EB7DC</bpmn2:incoming>
+      <bpmn2:outgoing>_083E2CC0-BAF0-481D-B301-E23C8E08C278</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[System.out.println("\n\nNewOrderPermittingProcess:  onEntry()  process instance id = "+kcontext.getProcessInstance().getId()); 
+
+java.util.Random rand = new java.util.Random();
+java.lang.Boolean _hoaMember = inputHOAMember;
+//this is not a great way of doing this but works for now.
+java.lang.Integer _generatedID = rand.nextInt(1000) + 1;
+java.lang.Boolean _hoaAcquiredWrittenApproval = false;
+java.lang.Boolean _electricPermitApproved = false;
+java.lang.Boolean _structuralPermitApproved = false;
+
+com.solarvillage.permit.domain.NewOrder _newOrder = new com.solarvillage.permit.domain.NewOrder(
+         _hoaMember,
+         _generatedID,
+         _hoaAcquiredWrittenApproval,
+         _electricPermitApproved,
+         _structuralPermitApproved)
+
+kcontext.setVariable("newPermitOrder", _newOrder);]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="_A2F36762-3A11-4126-9C18-792D398EB7DC" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="processStartEvent" targetRef="_ED17FE41-058F-4728-BEFA-71F23DE5C8E0"/>
+    <bpmn2:endEvent id="_6920DADD-FE0E-42B8-8B3A-ECECF67671BA" drools:selectable="true" color:background-color="#ff6347" color:border-color="#000000" color:color="#000000" name="">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_083E2CC0-BAF0-481D-B301-E23C8E08C278</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="_083E2CC0-BAF0-481D-B301-E23C8E08C278" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_ED17FE41-058F-4728-BEFA-71F23DE5C8E0" targetRef="_6920DADD-FE0E-42B8-8B3A-ECECF67671BA"/>
   </bpmn2:process>
-  <bpmndi:BPMNDiagram id="_yp5mEDJbEeaAA63x51bIkg">
-    <bpmndi:BPMNPlane id="_yp5mETJbEeaAA63x51bIkg" bpmnElement="PermitPOC.NewOrderPermittingProcess">
-      <bpmndi:BPMNShape id="_yp5mEjJbEeaAA63x51bIkg" bpmnElement="processStartEvent">
+  <bpmndi:BPMNDiagram id="_G5ozsDP6EeaND7FLRow6lQ">
+    <bpmndi:BPMNPlane id="_G5ozsTP6EeaND7FLRow6lQ" bpmnElement="PermitPOC.NewOrderPermittingProcess">
+      <bpmndi:BPMNShape id="_G5ozsjP6EeaND7FLRow6lQ" bpmnElement="processStartEvent">
         <dc:Bounds height="30.0" width="30.0" x="120.0" y="165.0"/>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_G5ozszP6EeaND7FLRow6lQ" bpmnElement="_ED17FE41-058F-4728-BEFA-71F23DE5C8E0">
+        <dc:Bounds height="80.0" width="100.0" x="204.0" y="140.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_G5oztDP6EeaND7FLRow6lQ" bpmnElement="_A2F36762-3A11-4126-9C18-792D398EB7DC">
+        <di:waypoint xsi:type="dc:Point" x="135.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="254.0" y="180.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_G5oztTP6EeaND7FLRow6lQ" bpmnElement="_6920DADD-FE0E-42B8-8B3A-ECECF67671BA">
+        <dc:Bounds height="28.0" width="28.0" x="390.0" y="166.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_G5oztjP6EeaND7FLRow6lQ" bpmnElement="_083E2CC0-BAF0-481D-B301-E23C8E08C278">
+        <di:waypoint xsi:type="dc:Point" x="254.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="404.0" y="180.0"/>
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
-  <bpmn2:relationship id="_yp5mEzJbEeaAA63x51bIkg" type="BPSimData">
+  <bpmn2:relationship id="_G5oztzP6EeaND7FLRow6lQ" type="BPSimData">
     <bpmn2:extensionElements>
       <bpsim:BPSimData>
         <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
           <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters" baseTimeUnit="min"/>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="processStartEvent" id="_yp5mFDJbEeaAA63x51bIkg">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_6920DADD-FE0E-42B8-8B3A-ECECF67671BA" id="_G5ozuDP6EeaND7FLRow6lQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_A2F36762-3A11-4126-9C18-792D398EB7DC" id="_G5ozuTP6EeaND7FLRow6lQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_083E2CC0-BAF0-481D-B301-E23C8E08C278" id="_G5pawDP6EeaND7FLRow6lQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_ED17FE41-058F-4728-BEFA-71F23DE5C8E0" id="_G5pawTP6EeaND7FLRow6lQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="processStartEvent" id="_G5pawjP6EeaND7FLRow6lQ">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:UniformDistribution max="10.0" min="5.0"/>
@@ -39,7 +128,7 @@
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_yp4X8TJbEeaAA63x51bIkg</bpmn2:source>
-    <bpmn2:target>_yp4X8TJbEeaAA63x51bIkg</bpmn2:target>
+    <bpmn2:source>_G5nlkDP6EeaND7FLRow6lQ</bpmn2:source>
+    <bpmn2:target>_G5nlkDP6EeaND7FLRow6lQ</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>
