@@ -3,5 +3,12 @@
 <property name="name" value="PermitPOC.NewOrderPermittingProcess-taskform.form"/>
 <property name="displayMode" value="default"/>
 <property name="status" value="0"/>
+<field position="0" name="IsMemberOfHoA" type="CheckBox" id="126862641">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;inputHOAMember (IsMemberOfHoA)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="inputHOAMember"/>
+<property name="fieldClass" value="java.lang.Boolean"/>
+</field>
 <dataHolder inputId="" name="#E9E371" type="basicType" outId="inputHOAMember" value="java.lang.Boolean" id="IsMemberOfHoA"/>
 </form>
