@@ -3,4 +3,5 @@
 <property name="name" value="PermitPOC.NewOrderPermittingProcess-taskform.form"/>
 <property name="displayMode" value="default"/>
 <property name="status" value="0"/>
+<dataHolder inputId="" name="#E9E371" type="basicType" outId="inputHOAMember" value="java.lang.Boolean" id="IsMemberOfHoA"/>
 </form>
