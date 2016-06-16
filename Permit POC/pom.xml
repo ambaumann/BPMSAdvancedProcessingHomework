@@ -7,6 +7,13 @@
   <version>1.0</version>
   <packaging>kjar</packaging>
   <name>Permit POC</name>
+  <dependencies>
+    <dependency>
+      <groupId>com.solarvillage.permit</groupId>
+      <artifactId>process-event-listener</artifactId>
+      <version>1.0</version>
+    </dependency>
+  </dependencies>
   <repositories>
     <repository>
       <id>guvnor-m2-repo</id>
