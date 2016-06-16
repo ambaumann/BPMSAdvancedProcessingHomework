@@ -1,7 +1,0 @@
-
-<form id="423939339">
-<property name="name" value="NewOrderPermittingProcessTaskForm.form"/>
-<property name="displayMode" value="default"/>
-<property name="status" value="0"/>
-<dataHolder inputId="" name="#E9E371" type="basicType" outId="inputHOAMember" value="java.lang.Boolean" id="IsMemberOfHoA"/>
-</form>
