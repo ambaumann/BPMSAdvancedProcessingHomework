@@ -57,8 +57,6 @@ import org.drools.core.process.core.datatype.impl.type.ObjectDataType;
     "displayName" : "REST",
     "icon" : "defaultservicenodeicon.png"
   ],
-  
-  ,
   [
     "name" : "StructuralPermit",
     "parameters" : [
