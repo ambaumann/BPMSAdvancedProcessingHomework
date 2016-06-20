@@ -69,6 +69,19 @@ import org.drools.core.process.core.datatype.impl.type.BooleanDataType;
     ],
     "displayName" : "Structural Permit",
     "icon" : "defaultservicenodeicon.png"
+  ],
+  
+  [
+    "name" : "ElectricPermit",
+    "parameters" : [
+        "Action" : new StringDataType(),
+         "Pass" : new BooleanDataType()
+    ],
+    "results" : [
+        "result" : new ObjectDataType(),
+    ],
+    "displayName" : "Structural Permit",
+    "icon" : "defaultservicenodeicon.png"
   ]
 
 ]
