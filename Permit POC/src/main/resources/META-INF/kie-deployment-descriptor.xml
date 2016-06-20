@@ -18,6 +18,12 @@
     <work-item-handlers>
         <work-item-handler>
             <resolver>mvel</resolver>
+            <identifier>new com.solarvillage.permit.wih.ResidentialStructuralPermitWorkItemHandler()</identifier>
+            <parameters/>
+            <name>StructuralPermit</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
             <identifier>new org.jbpm.process.instance.impl.demo.SystemOutWorkItemHandler()</identifier>
             <parameters/>
             <name>Log</name>
@@ -39,6 +45,12 @@
             <identifier>new org.jbpm.process.workitem.rest.RESTWorkItemHandler(classLoader)</identifier>
             <parameters/>
             <name>Rest</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.solarvillage.permit.wih.ResidentialElectricPermitWorkItemHandler()</identifier>
+            <parameters/>
+            <name>ElectricPermit</name>
         </work-item-handler>
     </work-item-handlers>
     <environment-entries/>
