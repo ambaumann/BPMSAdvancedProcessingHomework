@@ -59,6 +59,7 @@ public class NewOrderProcessEventListener implements ProcessEventListener {
     @Override
     public void afterNodeLeft(ProcessNodeLeftEvent event) {
     	NodeInstance node = event.getNodeInstance();
+    	log.info("Left a node named: " + node.getNodeName());
         if (node instanceof WorkItemNodeInstance) {
             WorkItemNodeInstance wiNode = (WorkItemNodeInstance) node;
             if ("WebService".equals(wiNode.getWorkItem().getName())) {
