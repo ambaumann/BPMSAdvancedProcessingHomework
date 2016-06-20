@@ -11,7 +11,7 @@ import org.drools.core.process.core.datatype.impl.type.BooleanDataType;
       "Body" : new StringDataType()
     ],
     "displayName" : "Email",
-    "icon" : ""
+    "icon" : "defaultemailicon.gif"
   ],
 
   [
@@ -20,7 +20,7 @@ import org.drools.core.process.core.datatype.impl.type.BooleanDataType;
       "Message" : new StringDataType()
     ],
     "displayName" : "Log",
-    "icon" : ""
+    "icon" : "defaultlogicon.gif"
   ],
 
   [
@@ -38,7 +38,7 @@ import org.drools.core.process.core.datatype.impl.type.BooleanDataType;
         "Result" : new ObjectDataType(),
     ],
     "displayName" : "WS",
-    "icon" : ""
+    "icon" : "defaultservicenodeicon.png"
   ],
 
   [
@@ -55,7 +55,7 @@ import org.drools.core.process.core.datatype.impl.type.BooleanDataType;
         "Result" : new ObjectDataType(),
     ],
     "displayName" : "REST",
-    "icon" : ""
+    "icon" : "defaultservicenodeicon.png"
   ],
 
   [
@@ -68,7 +68,7 @@ import org.drools.core.process.core.datatype.impl.type.BooleanDataType;
         "result" : new ObjectDataType(),
     ],
     "displayName" : "Structural Permit",
-    "icon" : ""
+    "icon" : "defaultservicenodeicon.png"
   ],
 
   [
@@ -81,7 +81,7 @@ import org.drools.core.process.core.datatype.impl.type.BooleanDataType;
         "result" : new ObjectDataType(),
     ],
     "displayName" : "Structural Permit",
-    "icon" : ""
+    "icon" : "defaultservicenodeicon.png"
   ]
 
 ]
