@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.kie.api.runtime.process.WorkItem;
+import org.kie.api.runtime.process.WorkItemHandler;
 import org.kie.api.runtime.process.WorkItemManager;
+import org.kie.internal.runtime.Cacheable;
 
-public class ResidentialStructuralPermitWorkItemHandler {
+public class ResidentialStructuralPermitWorkItemHandler implements WorkItemHandler, Cacheable{
 
 	public void abortWorkItem(WorkItem arg0, WorkItemManager arg1) {
 		// TODO Auto-generated method stub
@@ -14,7 +16,7 @@ public class ResidentialStructuralPermitWorkItemHandler {
 	}
 
 	public void executeWorkItem(WorkItem workItem, WorkItemManager manager) {
-		System.out.println("Stubbing Residential Electric Permit Work Item Handler");
+		System.out.println("Stubbing Residential Structural Permit Work Item Handler");
 		Map<String, Object> output = new HashMap<String, Object>();
 		String action = (String) workItem.getParameter("Action");
 		Boolean pass = (Boolean) workItem.getParameter("Pass");
