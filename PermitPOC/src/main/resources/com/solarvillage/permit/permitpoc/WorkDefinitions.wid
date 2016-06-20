@@ -80,7 +80,7 @@ import org.drools.core.process.core.datatype.impl.type.BooleanDataType;
     "results" : [
         "result" : new ObjectDataType(),
     ],
-    "displayName" : "Structural Permit",
+    "displayName" : "Electric Permit",
     "icon" : "defaultservicenodeicon.png"
   ]
 
