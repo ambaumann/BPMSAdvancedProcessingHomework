@@ -19,6 +19,11 @@
       <version>1.0</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>com.solarvillage.permit</groupId>
+      <artifactId>permit-wih</artifactId>
+      <version>1.0</version>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>
