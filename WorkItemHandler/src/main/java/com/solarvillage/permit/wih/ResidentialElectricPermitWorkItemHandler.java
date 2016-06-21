@@ -19,7 +19,7 @@ public class ResidentialElectricPermitWorkItemHandler implements WorkItemHandler
 		System.out.println("Stubbing Residential Electric Permit Work Item Handler");
 		Map<String, Object> output = new HashMap<String, Object>();
 		String action = (String) workItem.getParameter("Action");
-		Boolean pass = (Boolean) workItem.getParameter("Pass");
+		Boolean pass = Boolean.parseBoolean((String)workItem.getParameter("Pass"));
 		if(action.equalsIgnoreCase("Apply")){
 			output.put("result", pass);
 	        manager.completeWorkItem(workItem.getId(), output);
