@@ -26,6 +26,8 @@ public class ResidentialElectricPermitWorkItemHandler implements WorkItemHandler
 		}else if(action.equalsIgnoreCase("Rescind")){
 			output.put("result", pass);
 	        manager.completeWorkItem(workItem.getId(), output);
+		}else{
+			throw new PermitProcessingException("Unable to process electric permit.");
 		}
 		
 	}
